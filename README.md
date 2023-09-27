@@ -2,9 +2,10 @@
 A versatile simulator for advancing research in event-based and RGB-event data fusion.
 <br/>
 
+## Demos
 
 Automatically generated results where objects are randomly selected from a pool and then placed and moved according to some pre-defined rules (also the camera):
-Automatic generation, where the objects are randomly selected from a pool, then placed and moved following some rules (same for the camera)
+
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/auto.gif?raw=true)
 
 
