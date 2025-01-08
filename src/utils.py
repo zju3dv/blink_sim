@@ -1,6 +1,7 @@
 import os
+import cv2
 import random
-
+import numpy as np
 def safe_sample(data, num):
     safe_data = data
     if len(data) <= num:
@@ -44,6 +45,37 @@ def clean_unfinished_all(data_root):
             if not flag1 and not flag2:
                 print(f'removing {data_root}/{scene_name}/{seq_name}')
                 os.system(f'rm -r {data_root}/{scene_name}/{seq_name}')
+
+def make_video(images, outvid=None, fps=10, size=None, is_color=True, format="mp4v"):
+    if len(images) < 1:
+        return
+    fourcc = cv2.VideoWriter_fourcc(*format)
+    vid = None
+    for img in images:
+        if vid is None:
+            if size is None:
+                size = img.shape[1], img.shape[0]
+            vid = cv2.VideoWriter(outvid, fourcc, float(fps), size, is_color)
+        if size[0] != img.shape[1] and size[1] != img.shape[0]:
+            img = cv2.resize(img, size)
+        vid.write(img)
+    vid.release()
+
+
+def set_random_seed(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    try:
+        import torch
+        torch.manual_seed(seed)
+    except:
+        pass
+
+    try:
+        import bpy
+        bpy.context.scene.last_seed = seed
+    except:
+        pass
 
 if __name__ == '__main__':
     clean_unfinished_all('/mnt/nas_8/datasets/eflyingthings/train')

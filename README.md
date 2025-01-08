@@ -8,23 +8,17 @@ Automatically generated results where objects are randomly selected from a pool 
 
 ### Results of purely random scenes
 
-V1 (i.e. BlinkFlow):
-
-![Demo_Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/v1.gif?raw=true)
-
 V2 (need to checkout dev/v2 branch):
 
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/auto.gif?raw=true)
 
 
-### Rendered result of customized scene:
-
-Note: need to checkout dev/v2 branch
+### Rendered result of customized scene (still not available):
 
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/custom.gif?raw=true)
 
 
-## Features (some need to checkout dev/v2 branch)
+## Features
 
 - Event simulation: event data simulated from high-frequency rendering data
 - Simulation of low dynamic range, motion blur, defocus blur and atmospheric effect
@@ -53,18 +47,31 @@ Datas that are not shown in the demo but are also accessible
 ```bash
 conda env create -f environment.yml
 ```
-3. Prepare data and put them under `data/`. The data includes:
+3. Prepare data and put them under `data/`. The full data that we used includes:
 
-```text
-1. ADE20K dataset, or other image dataset that can be used as texture
-2. ShapeNetCore.v2 dataset, or other 3D model dataset
-3. hdri dataset, we provide a download script in scripts/download_hdri.py
+```markdown
+**texture**
+1. ADE20K dataset, need to download yourself
+2. flickr images
+3. pixabay images
+4. cc textures
+
+**object**
+1. shapenet dataset, need to download yourself
+2. google scanned dataset, need to download yourself
 ```
 
-We provide sample data for fast testing. You can download them using the following command:
+We crawled some images for usage such as texture and HDR lighting, including flickr, pixabay and cc textures and so on.
+Download our prepared data through:
 
 ```bash
-python scripts/download_hf_data.py
+python scripts/download_hf_data_v2.py
+```
+
+We also provide sample data for fast testing. You can download them using the following command:
+
+```bash
+python scripts/download_hf_data_example.py
 ```
 
 
@@ -85,7 +92,7 @@ python main.py
 
 Else if you want to use the sample data, you can run:
 ```bash
-python main.py --config configs/blinkflow_v1_example.yaml
+python main.py --config configs/blinkflow_v2_example.yaml
 ```
 
 If it runs successfully, you will see the similar result under `output` folder:
@@ -93,9 +100,16 @@ If it runs successfully, you will see the similar result under `output` folder:
 output/train/000000
 ├── events_left
 ├── forward_flow
-├── hdr
-└── hdr.mp4
+├── clean_uint8
+├── all_instance.txt
+├── dynamic_instance.txt
+├── event_ts.txt
+├── image_ts.txt
+├── metadata.json
+└── clean.mp4
 ```
+
+In the default config, we disable the rendering and parsing of many data such as stereo data and the groud truth of particle tracking, depth and so on. You can refer to the config (configs/blinkflow_v2.yaml) and enable them if you need.
 
 ## Citation
 

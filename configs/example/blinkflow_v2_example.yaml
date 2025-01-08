@@ -1,0 +1,92 @@
+# world setting
+world_radius: 70
+camera_active_radius: 40
+enough_height: 200
+shape_num: [2, 7]
+# custom camera coordinate -> x: right, y: forward, z: up
+range_for_dynamic_obj: [-6, 3, -6, 6, 40, 6]
+range_for_static_obj: [-12, 3, -6, 12, 40, 6]
+rotation_para: [[0, 30, 2], [30, 90, 2], [90, 180, 3], [180, 360, 3]]     # degree, [low, up, weights]
+nonlinear_velocity: False
+augment_shapenet_prob: 0.8
+num_static_obj: [50, 151]
+value_range: [0.4, 2.5]
+metallic_range: [0.0, 1.0]
+specular_range: [0.1, 0.9]
+roughness_range: [0.1, 0.9]
+example_assets: True
+object_pool: ['shapenet', 'primitive']
+object_pool_prob: [0.6, 0.4]
+texture_pool: ['ade20k']
+texture_pool_prob: [1.0]
+outdoor_ratio: 0.5
+wireframe_prob: 0.5
+camera_static_ratio: 0.05
+pos_offset: [[0,0,0], [10,10,3]]
+target_offset: [[4,4,0], [20,20,3]]
+pos_offset_power: 1
+target_offset_power: 1
+roll_theta_offset: [10,50]
+roll_theta_power: 1
+collision_check: True
+canopy_type: 'sphere' # a large 'sphere' textured with a hdr image or 'cube' textured with stiched images
+enable_ldr_simulation: True
+exposure_time_range: [-3.5, 3.5]
+
+# camera, animation and sequence setting
+mode: 'train'
+seq_range: [0, 1]
+image_width: 640
+image_height: 480
+hFoV: 39.6
+cpu_threads_in_cycles: 4
+clip_start: 0.001
+clip_end: 2000
+duration: 1.0
+num_keyframes: 3
+animation_mode: 'cubic_spline'  #['linear', 'cubic_spline']
+
+# rgb setting
+render_clean: True
+render_final: False
+engine_in_rgb_pass: 'cycles'
+render_samples_in_rgb_pass: 64
+rgb_image_fps: 10
+
+# event setting
+render_event: True
+event_image_fps: 300
+engine_in_event_pass: 'cycles'
+render_samples_in_event_pass: 64
+event_simulator: 'voltmeter'
+sample_mode: 'uniform' # adaptive is more realistic but slower
+max_pixel_movement: 2 # only used in adaptive mode
+
+# gt setting
+render_gt: True
+render_particle: False
+occlusion_thres: 0.1
+deform_error_tolerant_factor: 0.05
+particle_ref_frame: [1,22,40,5] # start,end,duration,step
+
+# assets
+hdr_dir: 'data/haven/hdris'
+crf_dir: 'data/dorfCurves'
+tree_material_dir: 'data/tree_materials'
+
+# parse data
+parse_clean: False
+parse_final: False
+parse_clean_uint8: True
+parse_final_uint8: False
+parse_forward_flow: True
+parse_backward_flow: False
+parse_occlusion_map: False
+parse_particle: False
+parse_depth: False
+parse_normals: False
+parse_instance_segmaps: False
+
+# stereo setting
+render_stereo: False
+stereo_baseline: 0.1

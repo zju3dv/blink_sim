@@ -22,7 +22,7 @@ from .simulator_utils import event_generation
 class EventSim(object):
     def __init__(
             self,
-            output_folder: str = None, video_name: str = None
+            output_folder: str = None, video_name: str = None, device='cpu'
     ):
         """
         Parameters
@@ -49,6 +49,7 @@ class EventSim(object):
 
         # init
         self.reset()
+        self.device = device
 
     def reset(self):
         '''
@@ -71,7 +72,13 @@ class EventSim(object):
                 [N, 4], each row contains [timestamp (us), y cordinate, x cordinate, sign of event].
         """
 
-        new_frame = torch.from_numpy(new_frame).to(torch.float64)
+        if not isinstance(new_frame, torch.Tensor):
+            new_frame = torch.from_numpy(new_frame).to(torch.float64)
+        if new_frame.dtype != torch.float64:
+            new_frame = new_frame.to(torch.float64)
+        if new_frame.device != self.device:
+            new_frame = new_frame.to(self.device)
+
         t_frame = float(t_frame)
 
         # ------------------
@@ -110,7 +117,7 @@ class EventSim(object):
             event_tensor = torch.stack([e_t, e_y, e_x, e_p], dim=1)
             _, sorted_idx = torch.sort(e_t)
             event_tensor = event_tensor[sorted_idx, :]
-            event_tensor = event_tensor.contiguous().numpy()
+            event_tensor = event_tensor.contiguous().cpu().numpy()
         else:
             event_tensor = None
 

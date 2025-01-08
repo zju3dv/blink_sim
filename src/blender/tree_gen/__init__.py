@@ -1,0 +1,45 @@
+bl_info = {
+    "name": "TreeGen",
+    "category": "Object",
+    "description": "Generate high quality tree models",
+    "author": "Charlie Hewitt and Luke Pflibsen-Jones",
+    "version": (0, 0, 4),
+    "wiki_url": "https://github.com/friggog/tree-gen/wiki",
+    "tracker_url": "https://github.com/friggog/tree-gen/issues/new/choose",
+    'blender': (2, 80, 0)
+}
+
+
+import bpy
+from . import gui
+
+
+def register():
+    bpy.utils.register_class(gui.TreeGen)
+    bpy.utils.register_class(gui.TreeGenPanel)
+    bpy.utils.register_class(gui.TreeGenCustomisePanel)
+    bpy.utils.register_class(gui.TreeGenUtilitiesPanel)
+    bpy.utils.register_class(gui.TreeGenRender)
+    bpy.utils.register_class(gui.TreeGenConvertToMesh)
+    bpy.utils.register_class(gui.TreeGenCreateLeafLODs)
+    bpy.utils.register_class(gui.TreeGenMainThreadExecuter)
+    bpy.utils.register_class(gui.TreeGenSaveFile)
+    bpy.utils.register_class(gui.TreeGenLoadParams)
+
+
+def unregister():
+    # Reversing order is best-practice
+    bpy.utils.unregister_class(gui.TreeGenLoadParams)
+    bpy.utils.unregister_class(gui.TreeGenSaveFile)
+    bpy.utils.unregister_class(gui.TreeGenMainThreadExecuter)
+    bpy.utils.unregister_class(gui.TreeGenCreateLeafLODs)
+    bpy.utils.unregister_class(gui.TreeGenConvertToMesh)
+    bpy.utils.unregister_class(gui.TreeGenRender)
+    bpy.utils.unregister_class(gui.TreeGenUtilitiesPanel)
+    bpy.utils.unregister_class(gui.TreeGenCustomisePanel)
+    bpy.utils.unregister_class(gui.TreeGenPanel)
+    bpy.utils.unregister_class(gui.TreeGen)
+
+
+if __name__ == "__main__":
+    register()
