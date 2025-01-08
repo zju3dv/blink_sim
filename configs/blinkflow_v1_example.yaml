@@ -1,0 +1,27 @@
+image_width: 640
+image_height: 480
+world_length: 50
+world_width: 50
+canopy_height: 30
+canopy_distance: 20
+shape_num: [1, 11]
+activte_range_for_dynamic_obj: [7, 8, 5]
+num_keyframes: 2
+event_image_fps: 301
+rgb_image_fps: 11
+duration: 1.0
+seq_range: [0,1]
+image_dir: 'data/ADE20K//'
+shape_dir: 'data/ShapeNetCore.v2/'
+hdr_dir: 'data/hdri/'
+num_static_obj: [30, 50]
+animation_mode: 'linear'
+train_split_ratio: 1.0
+# texture_split_file: 'configs/ade20k_train_test_split.json'
+# dynamic_obj_split_file: 'configs/shapenet_train_test_split.json'
+# sample data, used for fast testing
+texture_split_file: 'configs/ade20k_example.json'
+dynamic_obj_split_file: 'configs/shapenet_example.json'
+min_hsv_range: [1.0, 1.0]
+max_hsv_range: [1.0, 1.0]
+hsv_dark_prob: 0.00
