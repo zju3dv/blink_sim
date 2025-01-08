@@ -13,6 +13,7 @@ V1 (i.e. BlinkFlow):
 ![Demo_Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/v1.gif?raw=true)
 
 V2 (need to checkout dev/v2 branch):
+
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/auto.gif?raw=true)
 
 
@@ -44,7 +45,7 @@ Datas that are not shown in the demo but are also accessible
 2. [BlinkVision](https://www.blinkvision.net/)
 
 
-## Installation
+## Installation and Usage
 
 1. Install Blender, recommended version 3.3, link: https://www.blender.org/download/lts/3-3/
 2. Install Python dependencies
@@ -77,7 +78,7 @@ export DISPLAY=:0.{id} # for example, to use the GPU card 0, it should be DISPLA
 
 5. Run the main script
 
-If you want to use the default config (need the full dataset), you can run:
+If you want to use the default config (need to prepare full dataset), you can run:
 ```bash
 python main.py
 ```
@@ -108,9 +109,7 @@ If you find this code useful for your research, please use the following BibTeX 
   month = {October},
   year = {2023},
 }
-```
 
-```bibtex
 @inproceedings{blinkvision_eccv2024,
   title={BlinkVision: A Benchmark for Optical Flow, Scene Flow and Point Tracking Estimation using RGB Frames and Events},
   author={Yijin Li, Yichen Shen, Zhaoyang Huang, Shuo Chen, Weikang Bian, Xiaoyu Shi, Fu-Yun Wang, Keqiang Sun, Hujun Bao, Zhaopeng Cui, Guofeng Zhang, Hongsheng Li},
