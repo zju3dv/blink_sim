@@ -12,19 +12,19 @@ V1 (i.e. BlinkFlow):
 
 ![Demo_Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/v1.gif?raw=true)
 
-V2 (need to checkout dev/v2 branch):
+V2 (need to checkout v2 branch):
 
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/auto.gif?raw=true)
 
 
 ### Rendered result of customized scene:
 
-Note: need to checkout dev/v2 branch
+Note: need to checkout v2 branch
 
 ![Demo Video](https://github.com/eugenelyj/open_access_assets/blob/master/blinkflow/custom.gif?raw=true)
 
 
-## Features (some need to checkout dev/v2 branch)
+## Features (some need to checkout v2 branch)
 
 - Event simulation: event data simulated from high-frequency rendering data
 - Simulation of low dynamic range, motion blur, defocus blur and atmospheric effect
