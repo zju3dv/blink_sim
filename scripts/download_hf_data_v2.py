@@ -60,7 +60,7 @@ def download_dataset(repo_id, branch, output_dir):
 
 if __name__ == "__main__":
 
-    repo_id = "BlinkVision/BlinkSim_ExampleAssets"
+    repo_id = "BlinkVision/BlinkSim_Assets"
     branch = "main"
     output_dir = "./data"
     

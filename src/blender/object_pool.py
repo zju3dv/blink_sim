@@ -19,7 +19,7 @@ path_dict = {
     'shapenet': 'ShapeNetCore.v2',
     'google_scanned': 'google_scanned',
     'primitive': None,
-    'ade20k': 'ADE20K',
+    'ade20k': 'ADE20K_2021_17_01',
     'cc_textures_diffuse': 'cc_textures_diffuse',
     'flickr': 'flickr',
     'pixabay': 'pixabay',
